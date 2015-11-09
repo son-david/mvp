@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  Voter
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  For anyone who wants to make a vote
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  This app allows the user to register (sign up) through a secure server and vote on certain ballots, saving their votes and sending their vote up to the server to be saved anonymously
 
 ## Problem ##
-  > Describe the problem your product solves.
+  Solves the complications of voting and registering by the current way things are done
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  All the registration and voting is done in one place.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  "Democratic involvment in your hands"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  Just log in once you've registered and click to vote
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "I voted"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  We ought to use the technology we have in order to allow the common man to get involved in his/her state's issues.
