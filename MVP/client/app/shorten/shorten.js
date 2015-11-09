@@ -4,10 +4,18 @@ angular.module('shortly.shorten', [])
   // Your code here
   $scope.link = {};
   $scope.ballot = {};
+
   $scope.addLink = function () {
     Links.addLink();
   };
   $scope.addBallot = function(){
-    Ballots.addBallot();
+    console.log('ballot info', $scope.ballot);
+    Ballots.addBallot($scope.ballot)
+      .then(function() {
+        $location.path('/');
+      })
+      .catch(function(error){
+        console.log(error);
+      });
   };
 }]);

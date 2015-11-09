@@ -11,9 +11,14 @@
 
   <form name='ballotForm' ng-submit="addBallot()">
       <input name='ballot'
-        ng-model="ballot.url"
+        ng-model="ballot.name"
         placeholder="Enter your ballot here" required />
-
+      <input name='ballot'
+        ng-model="ballot.opt1"
+        placeholder="Enter your first option here" required />
+      <input name='ballot'
+        ng-model="ballot.opt2"
+        placeholder="Enter your second option here" required />
       <button type="submit" value="Shorten">
         add
       </button>

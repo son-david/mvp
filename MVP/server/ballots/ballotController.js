@@ -16,40 +16,46 @@ module.exports = {
       });
   },
   addBallot : function(req, res, next){
-    var name = req.body.name;
-    var opt1 = req.body.opt1;
-    var opt2 = req.body.opt2;
+    // { name: 'sd', opt1: 'd', opt2: 'd' }
+    var info = req.body;
 
     //var info = req.body.info;
 
     var createBallot = Q.nbind(Ballot.create, Ballot);
     var findBallot = Q.nbind(Ballot.findOne, Ballot);
 
-    findBallot({name: name})
-      .then(function (match){
-        if (match) {
-          res.send(match);
-        } else {
-          return;
-        }
-      })
-      .then(function (title){
-        if (title) {
-          var newBallot = {
-            name : name,
-            opt1 : opt1,
-            opt2 : opt2
-          };
-          return createBallot(newBallot);
-        }
-      })
-      .then (function (createdBallot) {
-        if(createdBallot) {
+    createBallot(info)
+      .then(function (createdBallot) {
+        if (createdBallot){
           res.json(createdBallot);
         }
-      })
-      .fail(function(error){
-        next(error);
-      })
+      });
+
+    // findBallot(info)
+    //   .then(function (match){
+    //     if (match) {
+    //       res.send(match);
+    //     } else {
+    //       return;
+    //     }
+    //   })
+    //   .then(function (title){
+    //     if (title) {
+    //       var newBallot = {
+    //         name : name,
+    //         opt1 : opt1,
+    //         opt2 : opt2
+    //       };
+    //       return createBallot(newBallot);
+    //     }
+    //   })
+    //   .then (function (createdBallot) {
+    //     if(createdBallot) {
+    //       res.json(createdBallot);
+    //     }
+    //   })
+    //   .fail(function(error){
+    //     next(error);
+    //   })
   }
 };

@@ -21,16 +21,16 @@ angular.module('shortly.ballots', [])
       });
   };
 
-  $scope.addBallot = function(){
-    console.log('ssssss');
-    Ballots.addBallot($scope.data)
-      .then(function() {
-        $location.path('/');
-      })
-      .catch(function(error){
-        console.log(error);
-      })
-  }
+  // $scope.addBallot = function(){
+  //   console.log('ssssss');
+  //   Ballots.addBallot($scope.data)
+  //     .then(function() {
+  //       $location.path('/');
+  //     })
+  //     .catch(function(error){
+  //       console.log(error);
+  //     })
+  // }
 
   $scope.getBallots();
 
