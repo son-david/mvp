@@ -1,0 +1,23 @@
+<div id='container'>
+ <div class='navigation'>
+  <ul>
+    <li><a href='' class='index'>All Links</a></li>
+    <li><a href='#/ballots' class='vote'>Ballots</a><li>
+    <li><a href='#/shorten' class='create'>Shorten</a></li>
+    <li><a href='#/logout' class='logout'>Logout</a></li>
+  </ul>
+  </div>
+  <div id='container'></div>
+
+  <form name='ballotForm' ng-submit="addBallot()">
+      <input name='ballot'
+        ng-model="ballot.url"
+        placeholder="Enter your ballot here" required />
+
+      <button type="submit" value="Shorten">
+        add
+      </button>
+  </form>
+  <div class='message'></div>
+
+</div>
