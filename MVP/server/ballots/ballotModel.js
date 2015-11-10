@@ -25,6 +25,10 @@ var BallotSchema = new mongoose.Schema({
     unique: true
   },
 
+  info: {
+    type: String
+  },
+
   opt1Votes : {
     type: Number,
     required:true

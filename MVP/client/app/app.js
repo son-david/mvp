@@ -1,9 +1,9 @@
-angular.module('shortly', [
-  'shortly.services',
-  'shortly.ballots',
-  'shortly.profile',
-  'shortly.creator',
-  'shortly.auth',
+angular.module('voter', [
+  'voter.services',
+  'voter.ballots',
+  'voter.profile',
+  'voter.creator',
+  'voter.auth',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
@@ -50,7 +50,7 @@ angular.module('shortly', [
   // then add it to the header so the server can validate the request
   var attach = {
     request: function (object) {
-      var jwt = $window.localStorage.getItem('com.shortly');
+      var jwt = $window.localStorage.getItem('com.voter');
       if (jwt) {
         object.headers['x-access-token'] = jwt;
       }

@@ -1,6 +1,6 @@
-angular.module('shortly.profile', [])
+angular.module('voter.profile', [])
 
-.controller('ProfileController', ['$scope','$location', 'User', 'Auth', function ($scope, $location, User, Auth) {
+.controller('ProfileController', ['$scope', 'User', 'Auth', 'Ballots', function ($scope, User, Auth, Ballots) {
   $scope.user = {};
 
   $scope.getUser = function(){
@@ -14,6 +14,7 @@ angular.module('shortly.profile', [])
       $scope.user.phone = user.data.phone;
       $scope.user.dob = user.data.dob;
       $scope.user.email = user.data.email;
+      $scope.user.votes = user.data.votes;
     })
   };
 

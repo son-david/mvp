@@ -13,6 +13,7 @@ a {
 h1 {
   font-style: italic;
   margin-bottom: 10px;
+  margin-top:10px;
 }
 
 .navigation {
@@ -148,4 +149,21 @@ input[type=url]:focus {
 
 .id {
   font-size: 7px;
+}
+
+.info {
+  font-weight: bold;
+}
+
+.voteinfo {
+  font-size: 11px;
+}
+
+.ballotinfo {
+  font-size : 11px;
+  margin-bottom: 5px;
+}
+
+.title {
+  margin-bottom: 5px;
 }

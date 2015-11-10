@@ -9,15 +9,17 @@
   </div>
   <div id='container'>
     <div class='profile'>
-      <div class='name'> username : {{user.username}} </div>
-      <div class='fullname'> full name : {{user.fullname}} </div>
-      <div class='address'> address : {{user.address}} </div>
-      <div class='city'> city : {{user.city}} </div>
-      <div class='state'> state : {{user.state}} </div>
-      <div class='zip'> zip : {{user.zip}} </div>
-      <div class='phone'> phone : {{user.phone}} </div>
-      <div class='dob'> date of birth : {{user.dob | date}} </div>
-      <div class='email'> email : {{user.email}} </div>
+      <div class='name'> Username : <span class='info'>{{user.username}} </span></div>
+      <div class='fullname'> Full Name : <span class='info'>{{user.fullname}} </span></div>
+      <div class='address'> Address : <span class='info'>{{user.address}} </span></div>
+      <div class='city'> City : <span class='info'>{{user.city}}</span> </div>
+      <div class='state'> State : <span class='info'>{{user.state}}</span> </div>
+      <div class='zip'> Zip : <span class='info'>{{user.zip}} </span></div>
+      <div class='phone'> Phone : <span class='info'>{{user.phone}} </span></div>
+      <div class='dob'> Date of Birth : <span class='info'>{{user.dob | date}} </span></div>
+      <div class='email'> Email : <span class='info'>{{user.email}}</span> </div>
+      <br>
+      <div class='votes'> Voting Record : <div ng-repeat='vote in user.votes'>You voted: <span class='info'>"{{vote.opt}}"</span> for <span class='info'>"{{vote.name}}"</span><br><span class='id'>({{vote.id}})</span></div> </div>
     </div>
   </div>
 </div>

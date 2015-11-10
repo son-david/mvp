@@ -1,4 +1,4 @@
-angular.module('shortly.creator', [])
+angular.module('voter.creator', [])
 
 .controller('CreatorController', ['$scope', '$location', 'Ballots', 'Auth', function ($scope, $location, Ballots, Auth) {
 

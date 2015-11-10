@@ -1,4 +1,4 @@
-angular.module('shortly.ballots', [])
+angular.module('voter.ballots', [])
 
 .controller('BallotsController', ['$scope','$location', 'Ballots', 'Auth', 'User', function ($scope, $location, Ballots, Auth, User) {
   $scope.data = {};
@@ -7,7 +7,8 @@ angular.module('shortly.ballots', [])
   $scope.getBallots = function () {
     Ballots.getBallots()
       .then(function (res) {
-        $scope.data.ballots = res.data;
+        var reverse = res.data.slice().reverse();
+        $scope.data.ballots = reverse;
       })
       .catch(function (error) {
         console.error(error);
@@ -22,10 +23,12 @@ angular.module('shortly.ballots', [])
 
   $scope.getBallots();
 
-  $scope.vote = function(val){ //{opt:#, ballot._id}
-    Ballots.vote(val);
-    User.addVote(val);
-    $scope.getBallots();
+  $scope.vote = function(val){
+    Ballots.vote(val).then(function(){
+      User.addVote(val).then(function(){
+        $scope.getBallots();
+      });
+    });
   };
 
   $scope.logout = function() {
@@ -34,7 +37,6 @@ angular.module('shortly.ballots', [])
 
   $scope.test = function(ballot){
     if (votes.length > 0) {
-      console.log(votes);
       for (var i = 0; i < votes.length; i++){
         if (ballot._id === votes[i].id) {
           return false;

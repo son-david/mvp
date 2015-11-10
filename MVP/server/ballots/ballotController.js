@@ -20,6 +20,7 @@ module.exports = {
     var name = req.body.name;
     var opt1 = req.body.opt1;
     var opt2 = req.body.opt2;
+    var info = req.body.info;
 
     //var info = req.body.info;
 
@@ -35,6 +36,7 @@ module.exports = {
             name : name,
             opt1 : opt1,
             opt2 : opt2,
+            info : info,
             opt1Votes : 0,
             opt2Votes : 0
           }
@@ -59,9 +61,9 @@ module.exports = {
     findBallot({_id: ballotId})
       .then(function(match){
         if (match){
-          if (opt === 1) {
+          if (opt === match.opt1) {
             match.opt1Votes++;
-          } else if (opt === 2) {
+          } else if (opt === match.opt2) {
             match.opt2Votes++;
           }
           match.save();

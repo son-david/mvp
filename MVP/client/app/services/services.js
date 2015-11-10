@@ -1,4 +1,4 @@
-angular.module('shortly.services', [])
+angular.module('voter.services', [])
 
 .factory('User', function($http){
   var getUser = function(){
@@ -68,10 +68,10 @@ angular.module('shortly.services', [])
     });
   };
   var isAuth = function () {
-    return !!$window.localStorage.getItem('com.shortly');
+    return !!$window.localStorage.getItem('com.voter');
   };
   var signout = function () {
-    $window.localStorage.removeItem('com.shortly');
+    $window.localStorage.removeItem('com.voter');
     $location.path('/signin');
   };
 

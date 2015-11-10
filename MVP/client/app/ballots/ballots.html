@@ -14,11 +14,12 @@
       <div class="info">
         <div class="id">id : {{ ballot._id }}</div>
         <div class="title">{{ ballot.name }}</div>
+        <div class="ballotinfo">{{ ballot.info}}</div>
         <div ng-if='test(ballot)'>
-          <button class="opt1" ng-click="vote({opt:1, id : ballot._id})">{{ ballot.opt1 }}</button>
-          <button class="opt2" ng-click="vote({opt:2, id : ballot._id})">{{ ballot.opt2 }}</button>
+          <button class="opt1" ng-click="vote({opt : ballot.opt1, id : ballot._id, name: ballot.name})">{{ ballot.opt1 }}</button>
+          <button class="opt2" ng-click="vote({opt : ballot.opt2, id : ballot._id, name: ballot.name})">{{ ballot.opt2 }}</button>
         </div>
-        <div class ="votes" ng-if='!test(ballot)'>You voted already! <br> votes for '{{ballot.opt1}}' : {{ballot.opt1Votes}}, votes for '{{ballot.opt2}}' : {{ballot.opt2Votes}}</div>
+        <div class ="votes" ng-if='!test(ballot)'><span class= voteinfo> Vote Cast </span><br> votes for '{{ballot.opt1}}' : {{ballot.opt1Votes}}, votes for '{{ballot.opt2}}' : {{ballot.opt2Votes}}</div>
       </div>
       <br> </br>
     </div>
