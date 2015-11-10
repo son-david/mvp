@@ -65,7 +65,7 @@ module.exports = {
             match.opt2Votes++;
           }
           match.save();
-          res.sendStatus(200);
+          res.send(200);
           next();
         }
       })
