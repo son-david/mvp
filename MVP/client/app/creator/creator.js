@@ -1,6 +1,6 @@
 angular.module('shortly.creator', [])
 
-.controller('CreatorController', ['$scope', '$location', 'Ballots', function ($scope, $location, Ballots) {
+.controller('CreatorController', ['$scope', '$location', 'Ballots', 'Auth', function ($scope, $location, Ballots, Auth) {
 
   $scope.ballot = {};
   $scope.addBallot = function(){
@@ -12,4 +12,8 @@ angular.module('shortly.creator', [])
         console.log(error);
       });
   };
+
+  $scope.logout = function() {
+    Auth.signout();
+  }
 }]);

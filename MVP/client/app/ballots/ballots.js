@@ -1,6 +1,6 @@
 angular.module('shortly.ballots', [])
 
-.controller('BallotsController', ['$scope','$location', 'Ballots', function ($scope, $location, Ballots) {
+.controller('BallotsController', ['$scope','$location', 'Ballots', 'Auth', function ($scope, $location, Ballots, Auth) {
   $scope.data = {};
 
   $scope.getBallots = function () {
@@ -20,5 +20,9 @@ angular.module('shortly.ballots', [])
     Ballots.vote(val);
     $scope.getBallots();
   };
+
+  $scope.logout = function() {
+    Auth.signout();
+  }
 
 }]);

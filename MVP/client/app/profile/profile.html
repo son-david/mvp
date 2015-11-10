@@ -4,13 +4,20 @@
     <li><a href='#/profile' class='index'>Profile</a></li>
     <li><a href='#/ballots' class='vote'>Ballots</a><li>
     <li><a href='#/creator' class='create'>Ballot Creator</a></li>
-    <li><a href='#/logout' class='logout'>Logout</a></li>
+    <li><a href='#/logout' class='logout' ng-click='logout()'>Logout</a></li>
   </ul>
   </div>
   <div id='container'>
     <div class='profile'>
-      <div class='name'> name : {{user.username}} </div>
-      <div class='password'> password : {{user.password}} </div>
+      <div class='name'> username : {{user.username}} </div>
+      <div class='fullname'> full name : {{user.fullname}} </div>
+      <div class='address'> address : {{user.address}} </div>
+      <div class='city'> city : {{user.city}} </div>
+      <div class='state'> state : {{user.state}} </div>
+      <div class='zip'> zip : {{user.zip}} </div>
+      <div class='phone'> phone : {{user.phone}} </div>
+      <div class='dob'> date of birth : {{user.dob | date}} </div>
+      <div class='email'> email : {{user.email}} </div>
     </div>
   </div>
 </div>
