@@ -65,6 +65,8 @@ module.exports = {
             match.opt2Votes++;
           }
           match.save();
+          res.send(200);
+          next();
         }
       })
       .fail (function (error) {
