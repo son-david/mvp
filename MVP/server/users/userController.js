@@ -40,6 +40,7 @@ module.exports = {
     var phone = req.body.phone;
     var dob = req.body.dob;
     var email = req.body.email;
+    var votes = req.body.votes;
 
     var create;
     var newUser;
@@ -114,6 +115,29 @@ module.exports = {
         .then(function (foundUser) {
           if (foundUser) {
             res.send(foundUser);
+          } else {
+            res.send(401);
+          }
+        })
+        .fail(function (error) {
+          next(error);
+        });
+    }
+  },
+
+  addVote: function(req, res, next) {
+    var token = req.headers['x-access-token'];
+    if (!token) {
+      next(new Error('No token'));
+    } else {
+      var user = jwt.decode(token, 'secret');
+      var findUser = Q.nbind(User.findOne, User);
+      findUser({username: user.username})
+        .then(function (foundUser) {
+          if (foundUser) {
+            foundUser.votes.push(req.body);
+            foundUser.save();
+            res.send(200);
           } else {
             res.send(401);
           }

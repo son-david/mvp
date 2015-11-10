@@ -56,6 +56,10 @@ var UserSchema = new mongoose.Schema({
     required: true
   },
 
+  votes: {
+    type : Array
+  },
+
   salt: String,
 
   versionKey : false

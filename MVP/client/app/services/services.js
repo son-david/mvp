@@ -7,8 +7,16 @@ angular.module('shortly.services', [])
       url: '/api/users'
     });
   };
+  var addVote = function(val){
+    return $http({
+      method: 'POST',
+      url: '/api/users',
+      data: val
+    });
+  };
   return {
-    getUser : getUser
+    getUser : getUser,
+    addVote : addVote
   }
 })
 .factory('Ballots', function($http){
