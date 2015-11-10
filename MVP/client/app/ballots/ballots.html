@@ -1,25 +1,24 @@
 <div id='ballots'>
   <div class='navigation'>
   <ul>
-    <li><a href='' class='index'>All Links</a></li>
+    <li><a href='#/profile' class='index'>Profile</a></li>
     <li><a href='#/ballots' class='vote'>Ballots</a><li>
-    <li><a href='#/shorten' class='create'>Shorten</a></li>
+    <li><a href='#/creator' class='create'>Ballot Creator</a></li>
     <li><a href='#/logout' class='logout'>Logout</a></li>
   </ul>
   </div>
+  <input type='text' ng-model='search' placeholder='filter' noauthenticate/>
   <div class="ballots">
-    <p>Ballots: </p>
     <div class="ballot"
-        ng-repeat="ballot in data.ballots | filter:search | orderBy:'created_at'">
-      <img src="assets/redirect_icon.png">
+        ng-repeat="ballot in data.ballots | filter:search">
       <div class="info">
-        <div class="visits">
-          <span class="count">{{ ballot.visits }}</span>Visits
-        </div>
-        <div class="title">{{ ballot.title }}</div>
-        <div class="original">{{ ballot.url }}</div>
+        <div class="id">id : {{ ballot._id }}</div>
+        <div class="title">{{ ballot.name }}</div>
+        <button class="opt1" ng-click="vote({opt:1, id : ballot._id})">{{ ballot.opt1 }}</button>
+        <button class="opt2" ng-click="vote({opt:2, id :  ballot._id})">{{ ballot.opt2 }}</button>
+        <div class ="votes">votes for {{ballot.opt1}} : {{ballot.opt1Votes}}, votes for {{ballot.opt2}} : {{ballot.opt2Votes}}</div>
       </div>
+      <br> </br>
     </div>
   </div>
 </div>
-  

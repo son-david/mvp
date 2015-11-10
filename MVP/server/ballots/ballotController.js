@@ -17,45 +17,65 @@ module.exports = {
   },
   addBallot : function(req, res, next){
     // { name: 'sd', opt1: 'd', opt2: 'd' }
-    var info = req.body;
+    var name = req.body.name;
+    var opt1 = req.body.opt1;
+    var opt2 = req.body.opt2;
 
     //var info = req.body.info;
 
-    var createBallot = Q.nbind(Ballot.create, Ballot);
     var findBallot = Q.nbind(Ballot.findOne, Ballot);
 
-    createBallot(info)
-      .then(function (createdBallot) {
-        if (createdBallot){
-          res.json(createdBallot);
+    findBallot({name: name})
+      .then(function(match){
+        if (match){
+          res.send(match);
+        } else {
+          var createBallot = Q.nbind(Ballot.create, Ballot);
+          var newBallot = {
+            name : name,
+            opt1 : opt1,
+            opt2 : opt2,
+            opt1Votes : 0,
+            opt2Votes : 0
+          }
+          return createBallot(newBallot);
         }
+      })
+      .then(function(created){
+        if (created) {
+          res.json(created);
+        }  
+      })
+      .fail (function (error) {
+        next(error);
       });
+  },
+  vote : function(req, res, next){
+    var opt = req.body.opt;
+    var ballotId = req.body.id;
 
-    // findBallot(info)
-    //   .then(function (match){
-    //     if (match) {
-    //       res.send(match);
-    //     } else {
-    //       return;
-    //     }
-    //   })
-    //   .then(function (title){
-    //     if (title) {
-    //       var newBallot = {
-    //         name : name,
-    //         opt1 : opt1,
-    //         opt2 : opt2
-    //       };
-    //       return createBallot(newBallot);
-    //     }
-    //   })
-    //   .then (function (createdBallot) {
-    //     if(createdBallot) {
-    //       res.json(createdBallot);
-    //     }
-    //   })
-    //   .fail(function(error){
-    //     next(error);
-    //   })
+    var findBallot = Q.nbind(Ballot.findOne, Ballot);
+
+    findBallot({_id: ballotId})
+      .then(function(match){
+        if (match){
+          if (opt === 1) {
+            match.opt1Votes++;
+          } else if (opt === 2) {
+            match.opt2Votes++;
+          }
+          match.save();
+        }
+      })
+      .fail (function (error) {
+        next(error);
+      });
   }
 };
+
+
+
+
+
+
+

@@ -1,8 +1,8 @@
 angular.module('shortly', [
   'shortly.services',
   'shortly.ballots',
-  'shortly.links',
-  'shortly.shorten',
+  'shortly.profile',
+  'shortly.creator',
   'shortly.auth',
   'ngRoute'
 ])
@@ -17,14 +17,9 @@ angular.module('shortly', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
-    .when('/links', {
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController',
-      authenticate: true
-    })
-    .when('/shorten', {
-      templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController',
+    .when('/creator', {
+      templateUrl: 'app/creator/creator.html',
+      controller: 'CreatorController',
       authenticate: true
     })
     .when('/logout',{
@@ -33,9 +28,15 @@ angular.module('shortly', [
     })
     .when('/ballots',{
       templateUrl: 'app/ballots/ballots.html',
-      controller: 'AuthController'
+      controller: 'BallotsController',
+      authenticate: true
     })
-    .otherwise('/signin');
+    .when('/profile', {
+      templateUrl: 'app/profile/profile.html',
+      controller: 'ProfileController',
+      authenticate: true
+    })
+    .otherwise('/ballots');
     // Your code here
 
     // We add our $httpInterceptor into the array

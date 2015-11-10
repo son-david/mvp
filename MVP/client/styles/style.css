@@ -146,3 +146,6 @@ input[type=url]:focus {
   clear: both;
 }
 
+.id {
+  font-size: 7px;
+}
