@@ -1,16 +1,17 @@
 <div id='ballots'>
-  <div class='navigation'>
-  <ul>
-    <li><a href='#/profile' class='index'>Profile</a></li>
-    <li><a href='#/ballots' class='vote'>Ballots</a><li>
-    <li><a href='#/creator' class='create'>Ballot Creator</a></li>
-    <li><a href='#/logout' class='logout' ng-click='logout()'>Logout</a></li>
-  </ul>
-  </div>
+  <nav class="navbar navbar-default">
+    <div class='navigation container-fluid'>
+      <ul class='navbar navbar-nav'>
+        <li><a href='#/profile' class='index'>Profile</a></li>
+        <li><a href='#/ballots' class='vote'>Ballots</a><li>
+        <li><a href='#/creator' class='create'>Creator</a></li>
+        <li><a href='#/logout' class='logout' ng-click='logout()'>Logout</a></li>
+      </ul>
+    </div>
+  </nav>
   <input type='text' ng-model='search' placeholder='filter' noauthenticate/>
   <div class="ballots">
-    <div class="ballot"
-        ng-repeat="ballot in data.ballots | filter:search">
+    <div class="ballot" ng-repeat="ballot in data.ballots | filter:search">
       <div class="info">
         <div class="id">id : {{ ballot._id }}</div>
         <div class="title">{{ ballot.name }}</div>
@@ -19,12 +20,13 @@
           <button class="opt1" ng-click="vote({opt : ballot.opt1, id : ballot._id, name: ballot.name})">{{ ballot.opt1 }}</button>
           <button class="opt2" ng-click="vote({opt : ballot.opt2, id : ballot._id, name: ballot.name})">{{ ballot.opt2 }}</button>
         </div>
-        <div class ="votes" ng-if='!test(ballot)'><span class= voteinfo> Vote Cast! </span><br>
+        <div class ="votes" ng-if='!test(ballot)'>
+          <span class= voteinfo> Vote Cast! </span><br>
           <svg class = "vote{{ballot._id}}" height='50' width='500' ng-init='chart({id : ballot._id, opt1 : ballot.opt1, opt2 : ballot.opt2, opt1Votes: ballot.opt1Votes, opt2Votes: ballot.opt2Votes})'></svg>
           <p>votes for '{{ballot.opt1}}' : {{ballot.opt1Votes}}, votes for '{{ballot.opt2}}' : {{ballot.opt2Votes}}</p>
         </div>
       </div>
-      <br> </br>
+      <br>
     </div>
   </div>
 </div>

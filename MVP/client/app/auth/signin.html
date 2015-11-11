@@ -1,9 +1,13 @@
 <div id='signin'>
-  <h1>sign in</h1>
-  <form name="signinForm" ng-submit='signin()'>
-    <input type='text' placeholder='username' ng-model='user.username'>
-    <input type="password" placeholder='password' ng-model='user.password'>
-    <button>signin</button>
-  </form>
-  <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
+  <div class = 'row'>
+    <div class = 'col-md-6 col-md-offset-2'>
+      <h1>sign in</h1>
+      <form name="signinForm" ng-submit='signin()'>
+        <input type='text' placeholder='username' ng-model='user.username'>
+        <input type="password" placeholder='password' ng-model='user.password'>
+        <button>signin</button>
+      </form>
+      <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
+    </div>
+  </div>
 </div>

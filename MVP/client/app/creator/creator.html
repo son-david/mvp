@@ -1,12 +1,14 @@
 <div id='container'>
- <div class='navigation'>
-  <ul>
-    <li><a href='#/profile' class='index'>Profile</a></li>
-    <li><a href='#/ballots' class='vote'>Ballots</a><li>
-    <li><a href='#/creator' class='create'>Ballot Creator</a></li>
-    <li><a href='#/logout' class='logout' ng-click='logout()'>Logout</a></li>
-  </ul>
-  </div>
+ <nav class="navbar navbar-default">
+    <div class='navigation container-fluid'>
+      <ul class='navbar navbar-nav'>
+        <li><a href='#/profile' class='index'>Profile</a></li>
+        <li><a href='#/ballots' class='vote'>Ballots</a><li>
+        <li><a href='#/creator' class='create'>Creator</a></li>
+        <li><a href='#/logout' class='logout' ng-click='logout()'>Logout</a></li>
+      </ul>
+    </div>
+  </nav>
   <div id='container'></div>
 
   <form name='ballotForm' ng-submit="addBallot()">

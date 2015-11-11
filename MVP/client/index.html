@@ -4,14 +4,18 @@
     <meta charset="utf-8" />
     <title>Voter</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   </head>
-  <body>
-    <img src="/assets/voted_icon.png" height="100" width="100"></img> 
-    <h1>Voter</h1>
+  <body class="container">
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <img src="/assets/voted_icon.png" height="100" width="100" class="img-responsive"></img> 
+      <h1 class="text-center">Voter</h1>
 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
-    <div ng-view></div>
-
+      <div ng-view></div>
+    </div>
+    </div>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
 

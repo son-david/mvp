@@ -1,18 +1,22 @@
 <div id='signup'>
-  <h1>signup</h1>
-  <form name="signupForm" ng-submit='signup()'>
-    <input type='text' placeholder='username' ng-model='user.username'>
-    <input type='text' placeholder='full name' ng-model='user.fullname'>
-    <input type="password" placeholder='password' ng-model='user.password'>
-    <input type='text' placeholder='address' ng-model='user.address'>
-    <input type='text' placeholder='city' ng-model='user.city'>
-    <input type='text' placeholder='state' ng-model='user.state'>
-    <input type='text' placeholder='zip' ng-model='user.zip'>
-    <input type='number' placeholder='phone' ng-model='user.phone'>
-    <input type='date' placeholder='date of birth' ng-model='user.dob'>
-    <input type='email' placeholder='email' ng-model='user.email'>
+  <div class = 'row'>
+    <div class = 'col-md-6 col-md-offset-2'>
+      <h1>signup</h1>
+      <form name="signupForm" ng-submit='signup()'>
+        <input type='text' placeholder='username' ng-model='user.username'>
+        <input type='text' placeholder='full name' ng-model='user.fullname'>
+        <input type="password" placeholder='password' ng-model='user.password'>
+        <input type='text' placeholder='address' ng-model='user.address'>
+        <input type='text' placeholder='city' ng-model='user.city'>
+        <input type='text' placeholder='state' ng-model='user.state'>
+        <input type='text' placeholder='zip' ng-model='user.zip'>
+        <input type='number' placeholder='phone' ng-model='user.phone'>
+        <input type='date' placeholder='date of birth' ng-model='user.dob'>
+        <input type='email' placeholder='email' ng-model='user.email'>
 
-    <button>signup</button>
-  </form>
-  <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
+        <button>signup</button>
+      </form>
+      <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
+    </div>
+  </div>
 </div>

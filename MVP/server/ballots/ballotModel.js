@@ -15,14 +15,12 @@ var BallotSchema = new mongoose.Schema({
 
   opt1: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
 
   opt2: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
 
   info: {
