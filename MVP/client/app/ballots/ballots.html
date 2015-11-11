@@ -19,7 +19,10 @@
           <button class="opt1" ng-click="vote({opt : ballot.opt1, id : ballot._id, name: ballot.name})">{{ ballot.opt1 }}</button>
           <button class="opt2" ng-click="vote({opt : ballot.opt2, id : ballot._id, name: ballot.name})">{{ ballot.opt2 }}</button>
         </div>
-        <div class ="votes" ng-if='!test(ballot)'><span class= voteinfo> Vote Cast </span><br> votes for '{{ballot.opt1}}' : {{ballot.opt1Votes}}, votes for '{{ballot.opt2}}' : {{ballot.opt2Votes}}</div>
+        <div class ="votes" ng-if='!test(ballot)'><span class= voteinfo> Vote Cast! </span><br>
+          <svg class = "vote{{ballot._id}}" height='50' width='500' ng-init='chart({id : ballot._id, opt1 : ballot.opt1, opt2 : ballot.opt2, opt1Votes: ballot.opt1Votes, opt2Votes: ballot.opt2Votes})'></svg>
+          <p>votes for '{{ballot.opt1}}' : {{ballot.opt1Votes}}, votes for '{{ballot.opt2}}' : {{ballot.opt2Votes}}</p>
+        </div>
       </div>
       <br> </br>
     </div>

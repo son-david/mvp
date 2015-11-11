@@ -1,9 +1,9 @@
 angular.module('voter', [
   'voter.services',
+  'voter.auth',
   'voter.ballots',
   'voter.profile',
   'voter.creator',
-  'voter.auth',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
